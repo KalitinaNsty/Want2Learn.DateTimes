@@ -6,7 +6,7 @@ namespace Want2Learn.DateTimes
     {
         static void Main(string[] args)
         {
-            
+
         }
         static DateTime GetRadomDate(int year)
         {
@@ -51,6 +51,37 @@ namespace Want2Learn.DateTimes
                 return firstDayOfWeek;
             }
             return firstDayOfWeek;
+        }
+
+        static DateTime GetEndWeek(DateTime date)
+        {
+            DayOfWeek day = date.DayOfWeek;
+            DateTime endDayWeek = date;
+            switch (day)
+            {
+                case DayOfWeek.Monday:
+                    endDayWeek = date.AddDays(6);
+                    break;
+                case DayOfWeek.Tuesday:
+                    endDayWeek = date.AddDays(5);
+                    break;
+                case DayOfWeek.Wednesday:
+                    endDayWeek = date.AddDays(4);
+                    break;
+                case DayOfWeek.Thursday:
+                    endDayWeek = date.AddDays(3);
+                    break;
+                case DayOfWeek.Friday:
+                    endDayWeek = date.AddDays(2);
+                    break;
+                case DayOfWeek.Saturday:
+                    endDayWeek = date.AddDays(1);
+                    break;
+                default: 
+                    return endDayWeek;
+                    break;
+            }
+            return endDayWeek;
         }
     }
 }
