@@ -6,7 +6,7 @@ namespace Want2Learn.DateTimes
     {
         static void Main(string[] args)
         {
-
+            
         }
         static DateTime GetRadomDate(int year)
         {
@@ -82,6 +82,35 @@ namespace Want2Learn.DateTimes
                     break;
             }
             return endDayWeek;
+        }
+
+        static int CountWeekend(DateTime date1, DateTime date2)
+        {
+            int count = 0;
+            for (DateTime i = date1.Date; i <= date2.Date; i = i.AddDays(1))
+            {
+                if (i.DayOfWeek == DayOfWeek.Saturday || i.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        static DateTime[] GetArrayWeekends(DateTime date1, DateTime date2)
+        {
+            int countWeekend = CountWeekend(date1, date2);
+            DateTime[] weekendDay = new DateTime[countWeekend];
+            int i = 0;
+            for (DateTime currentDate = date1.Date; currentDate <= date2.Date; currentDate = currentDate.AddDays(1))
+            {
+                if (currentDate.DayOfWeek == DayOfWeek.Saturday || currentDate.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    weekendDay[i] = currentDate;
+                    i++;
+                }
+            }
+            return weekendDay;
         }
 
         static DateTime[] GetArrayDate(DateTime date1, DateTime date2)
