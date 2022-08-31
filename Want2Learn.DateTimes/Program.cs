@@ -83,5 +83,28 @@ namespace Want2Learn.DateTimes
             }
             return endDayWeek;
         }
+
+        static DateTime[] GetArrayDate(DateTime date1, DateTime date2)
+        {
+            int count = CountDate(date1, date2);
+            DateTime[] arrayDate = new DateTime[count];
+            int i = 0;
+            for (DateTime newDate = date1.Date; newDate <= date2.Date; newDate = newDate.Date.AddDays(1))
+            {
+                arrayDate[i] = newDate;
+                i++;
+            }
+            return arrayDate;
+        }
+
+        static int CountDate(DateTime date1, DateTime date2)
+        {
+            int count = 0;
+            for (DateTime i = date1.Date; i <= date2.Date; i.Date.AddDays(1))
+            {
+                count++;
+            }
+            return count;
+        }
     }
 }
