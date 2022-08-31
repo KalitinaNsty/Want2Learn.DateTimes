@@ -100,7 +100,7 @@ namespace Want2Learn.DateTimes
         static int CountDate(DateTime date1, DateTime date2)
         {
             int count = 0;
-            for (DateTime i = date1.Date; i <= date2.Date; i.Date.AddDays(1))
+            for (DateTime i = date1.Date; i <= date2.Date; i = i.Date.AddDays(1))
             {
                 count++;
             }
